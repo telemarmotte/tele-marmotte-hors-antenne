@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Planche de sprites</title>
+<style>body{background:#6da447;font:12px monospace;margin:10px}div{display:inline-block;margin:6px;text-align:center;color:#fff}canvas{image-rendering:pixelated;display:block}</style>
+<script src="../js/sprites.js"></script>
+<body>
+<script>
+for (const n in TM.SPR) {
+  const s = TM.SPR[n], d = document.createElement('div');
+  const c = document.createElement('canvas');
+  c.width = s.w; c.height = s.h;
+  c.getContext('2d').drawImage(s.r, 0, 0);
+  c.style.width = (c.width * 6) + 'px'; c.style.height = (c.height * 6) + 'px';
+  d.appendChild(c); d.appendChild(document.createTextNode(n + ' ' + s.w + 'x' + s.h));
+  document.body.appendChild(d);
+}
+</script>
